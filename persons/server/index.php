@@ -35,7 +35,7 @@ register_shutdown_function(function() use ($response) {
 
 // Create request, and db-connection
 $request = new JsonRequest();
-$db = new MysqliBinder('127.0.0.1:3306', 'id9907843_root', 'taina', 'id9907843_persons');
+$db = new MysqliBinder('127.0.0.1:3306', 'ridig1_admin', '', 'ridig1_persons');
 
 if($db->connect_errno) {
 	$response->code(500);
