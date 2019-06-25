@@ -26,7 +26,7 @@ $(document).ready(function() {
 			var dateObject = new Date(...dateTimeParts); // our Date object
 			var diff = (dateObject - yesterday) / 3600000;
 			
-			if (diff < 12){
+			if (diff < 672){
 				$(this).attr('style', 'background-color: red !important');
 			}
 			else {
