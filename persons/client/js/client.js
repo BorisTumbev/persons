@@ -19,14 +19,15 @@ $(document).ready(function() {
 		$('.date').each(function(){
 			
 			var yesterday = new Date(new Date().setDate(new Date().getDate()-1));
-			
+			// var yesterday =(function(d){ d.setDate(d.getDate()-1); return d})(new Date)
+			var today = new Date();
+
 			let dateTimeParts= $(this).text().split(/[- :]/); 
 			dateTimeParts[1]--;
 			
 			var dateObject = new Date(...dateTimeParts); // our Date object
-			var diff = (dateObject - yesterday) / 3600000;
-			
-			if (diff < 672){
+			var diff = (today - dateObject) / 3600000;
+			if (diff > 672){
 				$(this).attr('style', 'background-color: red !important');
 			}
 			else {
