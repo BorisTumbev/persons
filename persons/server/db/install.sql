@@ -4,6 +4,8 @@ CREATE TABLE IF NOT EXISTS `persons` (
   `fname` varchar(12) NOT NULL,
   `lname` varchar(15) NOT NULL,
   `date` datetime NOT NULL,
+  `date2` datetime,
+  `note`  varchar(255),
   PRIMARY KEY (`ID`)
 ) DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 

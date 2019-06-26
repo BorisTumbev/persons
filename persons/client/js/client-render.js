@@ -4,8 +4,10 @@
 function render_persons(persons) {
 	var html = "<tr>"+
 			"<th>ID</th>"+
-			"<th>Name</th>"+
-			"<th>Date</th>"+
+			"<th>Име</th>"+
+			"<th>Дата</th>"+
+			"<th>Дата на дигитала</th>"+
+			"<th>Забележка</th>"+
 			"<th></th>"+
 		"</tr>";
 
@@ -17,6 +19,8 @@ function render_persons(persons) {
 				html_escape(p.fname + " " + p.lname) +
 			"</a></td>"+
 			"<td class='date'>" + html_escape(p.date) + "</td>" +
+			"<td>" + html_escape(p.date2) + "</td>" +
+			"<td>" + html_escape(p.note) + "</td>" +
 			"<td>" +
 				"<a href='#' data-person-id='" + p.id + "' class='edit_icon person-edit'>Edit</a> " +
 				"<a href='#' data-person-id='" + p.id + "' class='delete_icon person-delete'>Delete</a>" +
@@ -41,6 +45,8 @@ function render_person_form(person) {
 	html += "<p><label>Име</label><input name='fname' value='" + html_escape(person.fname) + "'/></p>";
 	html += "<p><label>Фамилия</label><input name='lname' value='" + html_escape(person.lname) + "'/></p>";
 	html += "<p><label>Дата</label><input name='date' value='" + html_escape(person.date) + "'/></p>";
+	html += "<p><label>Дата на дигитала</label><input name='date2' value='" + html_escape(person.date2) + "'/></p>";
+	html += "<p><label>Забележка</label><input class='note' name='note' value='" + html_escape(person.note) + "'/></p>";
 	html += "<p><button>Запази</button></p>";
 	html += "</form>";
 	
