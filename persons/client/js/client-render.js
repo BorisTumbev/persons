@@ -16,7 +16,7 @@ function render_persons(persons) {
 	for(var i=0; i<persons.length; i++) {
 		var p = persons[i];
 		html += "<tr>" +
-			"<td>" + p.id + "</td>" +
+			"<td>" + (i+1) + "</td>" +
 			"<td><a href='#' data-person-id='" + p.id + "' class='person-telephones'>" +
 				html_escape(p.fname + " " + p.lname) +
 			"</a></td>"+
