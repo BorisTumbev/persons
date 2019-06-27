@@ -6,6 +6,8 @@ CREATE TABLE IF NOT EXISTS `persons` (
   `date` datetime NOT NULL,
   `date2` datetime,
   `note`  varchar(255),
+  `plates`  varchar(20),
+  `data_plates` datetime,
   PRIMARY KEY (`ID`)
 ) DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 

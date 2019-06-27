@@ -10,34 +10,76 @@ function reload_persons() {
 
 }
 
+function check_date() {
+	$('.date').each(function(){
+		// let yesterday = new Date(new Date().setDate(new Date().getDate()-1));
+		let today = new Date();
+		let dateTimeParts= $(this).text().split(/[- :]/); 
+		dateTimeParts[1]--;
+		
+		let dateObject = new Date(...dateTimeParts); // our Date object
+		let diff = (today - dateObject) / 3600000;
+		if (diff > 552){
+			$(this).attr('style', 'background-color: red !important');
+		}
+		else if (diff > 480){
+			$(this).attr('style', 'background-color: yellow !important');
+		}
+		else {
+			$(this).attr('style', 'background-color: green !important');
+		}
+	 });
+}
+
+function check_data_plates() {
+	$('.data_plates').each(function(){
+		let today = new Date();
+		let dateTimeParts= $(this).text().split(/[- :]/); 
+		dateTimeParts[1]--;
+		
+		let dateObject = new Date(...dateTimeParts); // our Date object
+		let diff = (today - dateObject) / 3600000;
+		if (diff > 2040){
+			$(this).attr('style', 'background-color: red !important');
+		}
+		else if (diff > 1920){
+			$(this).attr('style', 'background-color: yellow !important');
+		}
+		else {
+			$(this).attr('style', 'background-color: green !important');
+		}
+	 });
+}
+
+function check_date2() {
+
+	$('.date2').each(function(){
+		let today = new Date();
+		let dateTimeParts= $(this).text().split(/[- :]/); 
+		dateTimeParts[1]--;
+		
+		let dateObject = new Date(...dateTimeParts); // our Date object
+		let diff = (today - dateObject) / 3600000;
+	
+		if (diff > 8660){
+			$(this).attr('style', 'background-color: yellow !important');
+		}
+		else {
+			$(this).attr('style', 'background-color: green !important');
+		}
+	 });
+}
+
 $(document).ready(function() {
 	
 	reload_persons();
 
 	$(document).on('click', 'a.persons-refresh', function() {
 		// reload_persons();
-		$('.date').each(function(){
-			
-			var yesterday = new Date(new Date().setDate(new Date().getDate()-1));
-			// var yesterday =(function(d){ d.setDate(d.getDate()-1); return d})(new Date)
-			var today = new Date();
+		check_date();
+		check_data_plates();
+		check_date2();
 
-			let dateTimeParts= $(this).text().split(/[- :]/); 
-			dateTimeParts[1]--;
-			
-			var dateObject = new Date(...dateTimeParts); // our Date object
-			var diff = (today - dateObject) / 3600000;
-			if (diff > 552){
-				$(this).attr('style', 'background-color: red !important');
-			}
-			else if (diff > 480){
-				$(this).attr('style', 'background-color: yellow !important');
-			}
-			else {
-				$(this).attr('style', 'background-color: green !important');
-			}
-
-		 });
 		return false; // disables default browser behavior when a hyper-link is clicked.
 	});
 
