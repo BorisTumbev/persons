@@ -60,8 +60,7 @@ function check_date2() {
 		
 		let dateObject = new Date(...dateTimeParts); // our Date object
 		let diff = (today - dateObject) / 3600000;
-	
-		if (diff > 8660){
+		if (diff > 43800){
 			$(this).attr('style', 'background-color: yellow !important');
 		}
 		else {
